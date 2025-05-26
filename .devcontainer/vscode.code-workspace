@@ -1,0 +1,71 @@
+{
+	"folders": [
+		{
+			"name": "custom",
+			"path": "../addons"
+		},
+		{
+			"name": "odoo",
+			"path": "/opt/odoo"
+		},
+		{
+			"name": "odoo-addons",
+			"path": "/opt/odoo-addons"
+		},
+				{
+			"name": "project",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"name": "Container odoo",
+				"driver": "PostgreSQL",
+				"previewLimit": 50,
+				"server": "db",
+				"port": 5432,
+				"database": "odoo",
+				"username": "odoo",
+				"password": "odoo"
+			},
+			{
+				"name": "Container postgres",
+				"driver": "PostgreSQL",
+				"previewLimit": 50,
+				"server": "db",
+				"port": 5432,
+				"database": "postgres",
+				"username": "odoo",
+				"password": "odoo"
+			}
+		]
+	},
+	"launch": {
+		"configurations": [
+			{
+				"name": "Python Attach 41234",
+				"type": "debugpy",
+				"request": "attach",
+				"connect": {
+					"host": "127.0.0.1",
+					"port": 41234
+				},
+				"pathMappings": [
+					{
+						"localRoot": "${workspaceFolder:project}/addons",
+						"remoteRoot": "/mnt/extra-addons"
+					},
+					{
+						"localRoot": "${workspaceFolder:odoo}",
+						"remoteRoot": "/opt/odoo"
+					},
+					{
+						"localRoot": "${workspaceFolder:odoo-addons}",
+						"remoteRoot": "/opt/odoo-addons"
+					}
+				]
+			}
+		]
+	}
+}
